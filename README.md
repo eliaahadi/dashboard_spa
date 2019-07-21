@@ -9,15 +9,15 @@ Dashboard Single Page Application
 - git clone repository
 - Run rails API server:
 ```
-$ cd stock-market
-stock-market $ bundle
-stock-market $ rails db:migrate
-stock-market $ rails db:seed
-stock-market $ rails s
+$ cd stock-app
+stock-app $ bundle
+stock-app $ rails db:migrate
+stock-app $ rails db:seed
+stock-app $ rails s
 ```
 - Run frontend React server:
 ```
-stock-market $ cd frontend
+stock-app $ cd frontend
 frontend $ yarn install
 frontend $ PORT=4000 yarn --cwd frontend start
 ```
