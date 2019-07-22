@@ -3,8 +3,7 @@ Dashboard Single Page Application.
 
 # Demo
 App on heroku here:
-
-
+[Heroku App](https://stock-exchange-webapp.herokuapp.com/)
 # Overview
 - The tech stack for this application is JavaScript/React/Redux for front end and Ruby on Rails for backend with PostsreSQL database.
 - Interactive components for the date component and buying stock components.
@@ -36,3 +35,4 @@ $ heroku local -f Procfile.dev
 - [Stock API](https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN)
 - [React Rails CRUD](https://medium.com/wineofbits/my-first-ruby-on-rails-react-app-in-just-15-minutes-51d73f0de3c6)
 - [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html)
+- [React/Ruby App on Heroku](https://medium.com/@bruno_boehm/reactjs-ruby-on-rails-api-heroku-app-2645c93f0814)
