@@ -1,5 +1,9 @@
 # dashboard_spa
-Dashboard Single Page Application
+Dashboard Single Page Application.
+
+# Demo
+App on heroku here:
+
 
 # Overview
 - The tech stack for this application is JavaScript/React/Redux for front end and Ruby on Rails for backend with PostsreSQL database.
@@ -21,7 +25,10 @@ stock-app $ cd frontend
 frontend $ yarn install
 frontend $ PORT=4000 yarn --cwd frontend start
 ```
-
+- Or to run both servers together using heroku, run command:
+```
+$ heroku local -f Procfile.dev
+```
 
 # References
 - [ReactJS](https://reactjs.org/docs/conditional-rendering.html)
