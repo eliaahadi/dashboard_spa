@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/eliaahadi/dashboard_spa/issues"
   },
-  "homepage": "https://github.com/eliaahadi/dashboard_spa#readme"
+  "homepage": "https://github.com/eliaahadi/dashboard_spa#readme",
+  "engines": {
+    "node": "6.3.1"
+  }
 }
