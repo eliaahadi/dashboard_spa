@@ -1,0 +1,28 @@
+{
+  "name": "dashboard_spa",
+  "version": "1.0.0",
+  "description": "Dashboard Single Page Application.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliaahadi/dashboard_spa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliaahadi/dashboard_spa/issues"
+  },
+  "homepage": "https://github.com/eliaahadi/dashboard_spa#readme",
+  "engines": {
+    "node": "6.3.1"
+  },
+}
