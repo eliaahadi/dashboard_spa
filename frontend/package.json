@@ -2,7 +2,7 @@
   "name": "stock-market",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/api/carts",
+  "proxy": "http://localhost:3000/api/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
