@@ -1,2 +1,2 @@
-web: cd frontend && PORT=4000 yarn start
+web: cd frontend && PORT=4000 npm start
 api: PORT=3000 bundle exec rails server
