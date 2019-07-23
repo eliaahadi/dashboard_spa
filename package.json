@@ -10,7 +10,8 @@
   "scripts": {
     "build": "cd frontend && npm install && npm run build && cd ..",
     "deploy": "cp -a frontend/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'frontend built!'"
+    "postinstall": "npm run build && npm run deploy && echo 'frontend built!'",
+    "heroku": "heroku local -f Procfile.dev "
   },
   "repository": {
     "type": "git",
