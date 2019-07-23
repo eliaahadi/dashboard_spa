@@ -1,0 +1,4 @@
+[
+  {"id":2,"company":"AMZN","stocks_bought":2,"latest_stock_price":"1300.24","total_stocks_price":2600,"created_at":"2019-07-21T16:32:45.967Z"},
+  {"id":1,"company":"GOOGL","stocks_bought":1,"latest_stock_price":"1148.41","total_stocks_price":1148,"created_at":"2019-07-21T16:32:45.961Z"}
+]
