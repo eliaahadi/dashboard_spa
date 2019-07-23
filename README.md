@@ -1,9 +1,17 @@
-# dashboard_spa
-Dashboard Single Page Application.
+# Dashboard Single Page Application Stock Exchange
+- Single Page Application with 2 APIs and 3 components.
+  - APIS
+    - Stocks data via a GET request
+    - Carts data via GET and POST request
+  - Components
+    - Date picker for stock data
+    - Buy stock data
+    - Carts data of bought stock
 
 # Demo
 App on heroku here:
-[Heroku App](https://stock-exchange-webapp.herokuapp.com/)
+- [Heroku App](https://stock-exchange-webapp.herokuapp.com/)
+
 # Overview
 - The tech stack for this application is JavaScript/React/Redux for front end and Ruby on Rails for backend with PostsreSQL database.
 - Interactive components for the date component and buying stock components.
@@ -26,8 +34,9 @@ frontend $ PORT=4000 yarn --cwd frontend start
 ```
 - Or to run both servers together using heroku, run command:
 ```
-$ heroku local -f Procfile.dev
+$ yarn heroku
 ```
+- View frontend at localhost:4000 and backend at localhost:3000/api/carts
 
 # References
 - [ReactJS](https://reactjs.org/docs/conditional-rendering.html)
