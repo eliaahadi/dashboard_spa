@@ -19,7 +19,9 @@ const cartsReducers = (state = initialState, action) => {
     case GET_CARTS_REJECTED: 
       return {...state, loading: false, error: action.error, carts:[...action.data]}
     case ADD_CART:
-      return {...state, loading: false, error: null, carts: [...state.carts, ...action.data]}
+      console.log('addd cart reducer ', state, action)
+      console.log('addd cart reducer2 ', [...state.carts, action.data])
+      return {...state, loading: false, error: null, carts: [...state.carts, action.data]}
       // return state.concat([action.data])
       // return {...state, loading: false, error: null, carts: [...state.carts, ...action.data]}
       // {

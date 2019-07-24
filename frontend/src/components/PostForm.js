@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import {bindActionCreators} from 'redux';
-// import {createCart} from '../actions/actionCreators';
+import {bindActionCreators} from 'redux';
+import {createCart} from '../actions/actionCreators';
 // import moment from 'moment';
 
 class PostForm extends Component {
@@ -72,21 +72,21 @@ class PostForm extends Component {
     } 
 
     const data = 
-    [
+    // [
+      // ...this.props.carts,
       {
-        id: 7,
         company,
         stocks_bought,
         latest_stock_price,
-        total_stocks_price,
-        created_at: new Date()
+        total_stocks_price
       }
-    ]
+    // ]
     // this.props.createCart(data)
-    this.props.dispatch({
-      type: 'ADD_CART',
-      data
-    })
+    this.props.createCart(company, stocks_bought, latest_stock_price, total_stocks_price)
+    // this.props.dispatch({
+    //   type: 'ADD_CART',
+    //   data
+    // })
     this.getStockNumber.value = '';
   }
 
@@ -132,11 +132,11 @@ const mapStateToProps = (state) => {
 }
 
 
-// function mapDispatchToProps(dispatch){
-//   return bindActionCreators({
-//     createCart: createCart
-//   }, dispatch)
-// }
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    createCart: createCart
+  }, dispatch)
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
-export default connect(mapStateToProps)(PostForm);
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+// export default connect(mapStateToProps)(PostForm);

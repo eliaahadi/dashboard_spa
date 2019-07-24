@@ -7,19 +7,19 @@ function getStocksLoading() {
 }
 
 function getStocksSuccess(stocks) {
-  return { type: GET_STOCKS_SUCCESS, stocks: stocks }
+  return { type: GET_STOCKS_SUCCESS, data: stocks }
 }
 
 function getStocksFailure(err) {
   return { type: GET_STOCKS_REJECTED, err: err }
 }
 
-function getCartsLoading(carts) {
-  return { type: GET_CARTS_LOADING, carts: carts }
+function getCartsLoading() {
+  return { type: GET_CARTS_LOADING}
 }
 
 function getCartsSuccess(carts) {
-  return { type: GET_CARTS_SUCCESS, carts: carts }
+  return { type: GET_CARTS_SUCCESS, data: carts }
 }
 
 function getCartsFailure(err) {
@@ -69,28 +69,44 @@ export function getStocks() {
 }
 
 
+// addNewList(title, excerpt) {
+//   axios.post( '/api/v1/lists', { list: {title, excerpt} })
+// .then(response => {
+//     console.log(response)
+//     const lists = [ ...this.state.lists, response.data ]
+//     this.setState({lists})
+// })
+//   .catch(error => {
+//       console.log(error)
+// }	)
+// }
+
 // CREATE CART (CREATE)
-export function createCart(carts) {
+export function createCart(company, stocks_bought, latest_stock_price, total_stocks_price) {
   return function(dispatch){
-    // console.log('\n \n create cart action creator -> ', company, stocks_bought,latest_stock_price, total_stocks_price)
-    console.log('\n \n create cart action creator -> ', carts)
-    axios.post('http://localhost:3000/api/carts', carts) 
-    // {
-    //   carts: {
-    //     company: company,
-    //     stocks_bought: stocks_bought,
-    //     latest_stock_price: latest_stock_price, 
-    //     total_stocks_price: total_stocks_price
-    //   }
-    // }
-  
+    console.log('\n \n create cart action creator -> ', company, stocks_bought,latest_stock_price, total_stocks_price)
+    // console.log('\n \n create cart action creator -> ', carts)
+    axios.post('http://localhost:3000/api/carts', 
+      {
+        cart: {
+          company,
+          stocks_bought,
+          latest_stock_price, 
+          total_stocks_price
+        }
+      }
+    )
     .then(function(response){
       console.log('\n \n create cart response successful! ', response)
+      // console.log('\n \n carts  ', this.props.carts)
       // dispatch(addCart(response.data.id, response.data.company, response.data.stocks_bought, response.data.latest_stock_price, response.data.total_stocks_price))
       // dispatch(addCart(response.data))
-      dispatch({type: ADD_CART, carts: response.data})
+      // const cartsData = [ ...this.props.carts, response.data ]
+
+      dispatch({type: ADD_CART, data: response.data})
     })
     .catch(function(err){
+      console.log('\n \n catch error ', err)
       dispatch({
         type:"CREATE_CART_REJECTED",
         msg: 'error when adding an item to the cart'})

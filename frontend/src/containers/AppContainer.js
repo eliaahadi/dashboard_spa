@@ -4,8 +4,10 @@ import AllCarts from '../components/AllCarts';
 import CompareStocks from '../components/CompareStocks';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getStocks} from '../actions/stocksActions';
-import {getCarts} from '../actions/stocksActions';
+// import {getStocks} from '../actions/stocksActions';
+// import {getCarts} from '../actions/stocksActions';
+import {getStocks} from '../actions/actionCreators';
+import {getCarts} from '../actions/actionCreators';
 
 class AppContainer extends Component {
   componentDidMount() {
