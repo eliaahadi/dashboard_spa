@@ -28,7 +28,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 gem 'rack-cors', :require => 'rack/cors'
 
-
 # gem 'sqlite3'
 
 group :production do
@@ -54,3 +53,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'foreman'
+
+gem "actionview", ">= 5.2.2.1"
+gem "railties", ">= 5.2.2.1"
+gem "rack", ">= 2.0.6"
+gem "loofah", ">= 2.2.3"
