@@ -111,8 +111,6 @@ class PostForm extends Component {
         </label>
       <div>{this.state.company}</div>
       <div>{this.state.latestStockPrice}</div>
-      <div>{this.state.stocksNumberBought}</div>
-      <div>{this.state.totalStocksPrice}</div>
       <input required type="text" ref={(input) => this.getStockNumber = input}
         placeholder="Enter amount of stocks you want" 
       />

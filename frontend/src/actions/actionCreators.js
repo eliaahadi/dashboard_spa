@@ -57,9 +57,9 @@ function removeCart(index) {
 export function getStocks() {
   return function(dispatch){
     dispatch(getStocksLoading());
-    axios.get("https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN")
+    // axios.get("https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN")
+    axios.get("https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN?timeseries=2")
     .then(function(response){
-      console.log('response STOCKS data ', response)
       dispatch(getStocksSuccess(response.data.historicalStockList))
     })
     .catch(function(err){
@@ -84,8 +84,6 @@ export function getStocks() {
 // CREATE CART (CREATE)
 export function createCart(company, stocks_bought, latest_stock_price, total_stocks_price) {
   return function(dispatch){
-    console.log('\n \n create cart action creator -> ', company, stocks_bought,latest_stock_price, total_stocks_price)
-    // console.log('\n \n create cart action creator -> ', carts)
     axios.post('http://localhost:3000/api/carts', 
       {
         cart: {
@@ -98,11 +96,6 @@ export function createCart(company, stocks_bought, latest_stock_price, total_sto
     )
     .then(function(response){
       console.log('\n \n create cart response successful! ', response)
-      // console.log('\n \n carts  ', this.props.carts)
-      // dispatch(addCart(response.data.id, response.data.company, response.data.stocks_bought, response.data.latest_stock_price, response.data.total_stocks_price))
-      // dispatch(addCart(response.data))
-      // const cartsData = [ ...this.props.carts, response.data ]
-
       dispatch({type: ADD_CART, data: response.data})
     })
     .catch(function(err){
@@ -135,7 +128,7 @@ export function getCarts() {
     dispatch(getCartsLoading());
     axios.get("http://localhost:3000/api/carts")
     .then(function(response){
-      console.log('response CARTS data ', response)
+      console.log('response GET CARTs ', response)
       dispatch(getCartsSuccess(response.data))
     })
     .catch(function(err){
@@ -146,20 +139,42 @@ export function getCarts() {
 
 // UPDATE CART (UPDATE)
 export function updateCart(carts) {
-  axios.put(`http://localhost:3000/api/carts/`, {carts: carts})
-  .then(response => {
-  this.props.dispatch(editCart(carts))
-  })
-  .catch(error => console.log(error))      
+  return function(dispatch) {
+    axios.put(`http://localhost:3000/api/carts/`, {carts: carts})
+    .then(response => {
+    dispatch(editCart(carts))
+    })
+    .catch(error => console.log(error))      
+  }
 }
+var config = {
+  headers: {   
+    'Access-Control-Allow-Origin': '*', 
+    'Content-Type': 'application/json' 
+  }
+};
+
+// export function deleteBooks(id){
+  // return function(dispatch){
+    // axios.delete("/api/books/" + id)
 
 // DELETE CART (DELETE)
 export function deleteCart(id) {
-  axios.delete(`http://localhost:3000/api/carts/${id}`)
-  .then(response => {
-  this.props.dispatch(removeCart(id))
-  })
-  .catch(error => console.log(error))
+  return function(dispatch) {
+    console.log('delete action creator ', id)
+    axios.delete('/api/carts/' + id, {
+    // axios.delete(`http://localhost:3000/api/carts/${id}`, {
+        'Content-Type': 'application/json' 
+    })
+    .then(response => {
+      console.log('delete RESPONSE ', response, id)
+      // this.props.dispatch(removeCart(id))
+      dispatch({type: DELETE_CART, data: id})
+      // dispatch(getCartsSuccess(response.data))
+      // dispatch(removeCart(id))
+    })
+    .catch(error => console.log(error))
+  }
 }
 
 
