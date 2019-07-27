@@ -56,7 +56,7 @@ export function getStocks() {
 // CREATE CART (CREATE)
 export function createCart(company, stocks_bought, latest_stock_price, total_stocks_price, editing) {
   return function(dispatch){
-    axios.post('http://localhost:3000/api/carts', 
+    axios.post('/api/carts', 
       {
         cart: {
           company,
@@ -78,11 +78,11 @@ export function createCart(company, stocks_bought, latest_stock_price, total_sto
   }
 }
 
-// GET CART (READ)
+// GET CARTS (READ)
 export function getCarts() {
   return function(dispatch){
     dispatch(getCartsLoading());
-    axios.get("http://localhost:3000/api/carts")
+    axios.get("/api/carts")
     .then(function(response){
       dispatch(getCartsSuccess(response.data))
     })

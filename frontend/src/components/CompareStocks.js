@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-// import {getStocks, getCarts} from '../actions/actionCreators';
 import {getCarts, getStocks} from '../actions/actionCreators';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';

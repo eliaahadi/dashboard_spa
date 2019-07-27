@@ -13,10 +13,10 @@ class Edit extends Component {
     const latest_stock_price = this.props.carts.latest_stock_price;
     const total_stocks_price = parseInt(stocks_bought * latest_stock_price);
     
-    if (total_stocks_price >= 1000000) {
-      alert('You cannot buy over $1,000,000 amount')
-      return;
-    } 
+    // if (total_stocks_price >= 1000000) {
+    //   alert('You cannot buy over $1,000,000 amount')
+    //   return;
+    // } 
 
     const data = 
       {
@@ -24,7 +24,7 @@ class Edit extends Component {
         total_stocks_price
       }
 
-      console.log('edit component handle edit ', stocks_bought, total_stocks_price)
+    console.log('edit component handle edit ', stocks_bought, total_stocks_price)
     this.props.updateCart(this.props.carts.id, data)
 
     this.getStockNumber.value = '';
@@ -48,13 +48,10 @@ class Edit extends Component {
   }
 }
 
-// export default connect()(Edit);
-
 function mapDispatchToProps(dispatch, ownProps){
   return bindActionCreators({
     updateCart: updateCart
   }, dispatch)
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Post);
 export default connect(null, mapDispatchToProps)(Edit);

@@ -13,15 +13,13 @@ class AllCarts extends Component {
     if (this.props.carts.loading) {
       return <div></div>;
     }
-    console.log('all carts component ', this.props.carts)
-    // console.log('all carts mapped ', this.props.carts.carts.map((cart)=> console.log('\n cart ', cart)))
+    // console.log('all carts component ', this.props.carts)
 
     return (
       <div>
         <h1 className="post_heading">All Carts</h1>
         {this.props.carts.carts && this.props.carts.carts.map((cart) => (
           <div key={cart.id}>
-          {/* <Post carts={cart} key={cart.id} /> */}
             {cart.editing ? 
               <Edit carts={cart} key={cart.id} /> : <Post carts={cart}
               key={cart.id} />
