@@ -1,7 +1,7 @@
 class CreateCarts < ActiveRecord::Migration[5.2]
   def change
     create_table :carts do |t|
-      t.string "company"
+      t.string "company", default: ""
       t.integer "stocks_bought", default: 0
       t.decimal "latest_stock_price", default: "0.0"
       t.integer "total_stocks_price", default: 0

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_104655) do
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
-    t.string "company"
+    t.string "company", default: ""
     t.integer "stocks_bought", default: 0
     t.decimal "latest_stock_price", default: "0.0"
     t.integer "total_stocks_price", default: 0
