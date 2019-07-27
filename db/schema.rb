@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_104655) do
     t.integer "total_stocks_price", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "editing", default: false
   end
 
 end

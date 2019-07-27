@@ -65,24 +65,26 @@ class PostForm extends Component {
     const stocks_bought = parseInt(this.getStockNumber.value);
     const latest_stock_price = this.state.latestStockPrice;
     const total_stocks_price = parseInt(stocks_bought * latest_stock_price);
-    
+    const editing = false;
+
     if (total_stocks_price >= 1000000) {
       alert('You cannot buy over $1,000,000 amount')
       return;
     } 
 
-    const data = 
-    // [
-      // ...this.props.carts,
-      {
-        company,
-        stocks_bought,
-        latest_stock_price,
-        total_stocks_price
-      }
+    // const data = 
+    // // [
+    //   // ...this.props.carts,
+    //   {
+    //     company,
+    //     stocks_bought,
+    //     latest_stock_price,
+    //     total_stocks_price,
+    //     editing
+    //   }
     // ]
     // this.props.createCart(data)
-    this.props.createCart(company, stocks_bought, latest_stock_price, total_stocks_price)
+    this.props.createCart(company, stocks_bought, latest_stock_price, total_stocks_price, editing)
     // this.props.dispatch({
     //   type: 'ADD_CART',
     //   data

@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {deleteCart} from '../actions/actionCreators';
+import {EDIT_CART} from '../actions/actionTypes';
 
 class Post extends Component {
   render() {
-    console.log('post component ', this.props); //{carts: {id: 1, company: "GOOGL", stocks_bought: 1, latest_stock_price: "11
-    // console.log('post component with mapStateToProps', this.props); //{carts: {id: 1, company: "GOOGL", stocks_bought: 1, latest_stock_price: "11
+    // console.log('post component ', this.props); //{carts: {id: 1, company: "GOOGL", stocks_bought: 1, latest_stock_price: "11
+    console.log('post component with mapStateToProps', this.props); //{carts: {id: 1, company: "GOOGL", stocks_bought: 1, latest_stock_price: "11
     // console.log('post component ', this.props.carts.carts, this.props.carts.carts[0].company);
     return (
       <div className="post">
@@ -16,8 +17,7 @@ class Post extends Component {
         <p className="post_message">Total Price: {this.props.carts.total_stocks_price}</p>
         <div className="control-buttons">
           <button className="edit"
-            onClick={() => this.props.dispatch({ type: 'EDIT_CART', id: this.props.cart.id })
-          }
+            onClick={this.props.editCart}
           >Edit</button>
           <button className="delete"
             key={this.props.carts.id}
@@ -30,18 +30,19 @@ class Post extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    carts: state.carts,
-    stocks: state.stocks,
-    loading: state.loading,
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     carts: state.carts,
+//     stocks: state.stocks,
+//     loading: state.loading,
+//   }
+// }
 
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch, ownProps){
   return bindActionCreators({
-    deleteCart: deleteCart
+    deleteCart: deleteCart,
+    editCart: () => {return {type: EDIT_CART, id: ownProps.carts.id}}
   }, dispatch)
 }
 

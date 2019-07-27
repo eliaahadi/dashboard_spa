@@ -101,7 +101,7 @@ class CartsController < ApplicationController
 
     # # Only allow a trusted parameter "white list" through.
     def cart_params
-      params.require(:cart).permit(:company, :stocks_bought, :latest_stock_price, :total_stocks_price)
+      params.require(:cart).permit(:company, :stocks_bought, :latest_stock_price, :total_stocks_price, :editing)
     end
 
     # def list_params
