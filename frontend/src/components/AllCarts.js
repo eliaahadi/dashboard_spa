@@ -13,7 +13,6 @@ class AllCarts extends Component {
     if (this.props.carts.loading) {
       return <div></div>;
     }
-    // console.log('all carts component ', this.props.carts)
 
     return (
       <div>

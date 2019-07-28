@@ -24,14 +24,14 @@ class Edit extends Component {
         total_stocks_price
       }
 
-    console.log('edit component handle edit ', stocks_bought, total_stocks_price)
+    // console.log('edit component handle edit ', this.props.carts.id, stocks_bought, total_stocks_price)
     this.props.updateCart(this.props.carts.id, data)
 
     this.getStockNumber.value = '';
   }
 
   render() {
-    console.log('edit component this.props', this.props, this.props.carts)
+    // console.log('edit component this.props', this.props, this.props.carts)
     return (
     <div key={this.props.carts.id} className="post">
       <form className="form" onSubmit={this.handleEdit}>

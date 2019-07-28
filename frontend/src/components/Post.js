@@ -7,8 +7,7 @@ import {EDIT_CART} from '../actions/actionTypes';
 class Post extends Component {
   render() {
     // console.log('post component ', this.props); //{carts: {id: 1, company: "GOOGL", stocks_bought: 1, latest_stock_price: "11
-    console.log('post component with mapStateToProps', this.props); //{carts: {id: 1, company: "GOOGL", stocks_bought: 1, latest_stock_price: "11
-    // console.log('post component ', this.props.carts.carts, this.props.carts.carts[0].company);
+    // console.log('post component with mapStateToProps', this.props); //{carts: {id: 1, company: "GOOGL", stocks_bought: 1, latest_stock_price: "11
     return (
       <div className="post">
         <h2 className="post_title">{this.props.carts.company}</h2>
