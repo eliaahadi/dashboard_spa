@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {createCart} from '../actions/actionCreators';
+// import {ADD_CART} from '../actions/actionTypes';
 // import moment from 'moment';
 
 class PostForm extends Component {
@@ -83,13 +84,10 @@ class PostForm extends Component {
     //     editing
     //   }
     // ]
-    // this.props.createCart(data)
     this.props.createCart(company, stocks_bought, latest_stock_price, total_stocks_price, editing)
-    // this.props.dispatch({
-    //   type: 'ADD_CART',
-    //   data
-    // })
+    // this.props.addCart(data)
     this.getStockNumber.value = '';
+    alert('cart added!')
   }
 
   render() {
@@ -106,6 +104,7 @@ class PostForm extends Component {
       <label>
           Choose company to get latest stock price:
           <select value={this.state.company} onChange={this.handleChange}>
+            <option value="" disabled defaultValue> -- select a company -- </option>
             <option value="AAPL">Apple</option>
             <option value="GOOGL">Google</option>
             <option value="AMZN">Amazon</option>
@@ -134,7 +133,8 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    createCart: createCart
+    createCart: createCart,
+    // addCart: (data) => {return {type: ADD_CART, data: data}}
   }, dispatch)
 }
 
