@@ -73,22 +73,22 @@ class PostForm extends Component {
       return;
     } 
     
-    const idMax = Math.max(...this.props.carts.carts.map(o=>o.id),this.props.carts.carts[0].id);
+    // const idMax = Math.max(...this.props.carts.carts.map(o=>o.id),this.props.carts.carts[0].id);
     
-    const data = 
-      {
-        id: idMax + 1,
-        company,
-        stocks_bought,
-        latest_stock_price,
-        total_stocks_price,
-        editing
-      }
+    // const data = 
+    //   {
+    //     id: idMax + 1,
+    //     company,
+    //     stocks_bought,
+    //     latest_stock_price,
+    //     total_stocks_price,
+    //     editing
+    //   }
 
-    this.props.addCart(data)
+    // this.props.addCart(data)
 
     //comment data & this.props.addCart(data) if you want to use postgres DB
-    // this.props.createCart(company, stocks_bought, latest_stock_price, total_stocks_price, editing)
+    this.props.createCart(company, stocks_bought, latest_stock_price, total_stocks_price, editing)
     this.getStockNumber.value = '';
     alert('cart added!')
   }
