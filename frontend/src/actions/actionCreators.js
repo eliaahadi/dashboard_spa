@@ -44,8 +44,8 @@ function getCartsFailure(err) {
 export function getStocks() {
   return function(dispatch){
     dispatch(getStocksLoading());
-    // axios.get("https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN")
-    axios.get("https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN?timeseries=3")
+    axios.get("https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN")
+    // axios.get("https://financialmodelingprep.com/api/v3/historical-price-full/AAPL,GOOGL,AMZN?timeseries=3")
     .then(function(response){
       dispatch(getStocksSuccess(response.data.historicalStockList))
     })
