@@ -10,7 +10,7 @@
     "web": "PORT=4000 yarn start"
   },
   "dependencies": {
-    "ajv": "^6.5.4",
+    "ajv": "^6.12.3",
     "axios": "^0.19.0",
     "babel-eslint": "9.0.0",
     "font-awesome": "^4.7.0",
